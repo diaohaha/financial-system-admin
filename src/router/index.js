@@ -105,7 +105,7 @@ export const asyncRoutes = [
   {
     path: '/settings',
     component: Layout,
-    redirect: '/settings/basic',
+    redirect: '/settings/dictionary',
     name: 'Settings',
     meta: {
       title: '系统设置',
@@ -115,20 +115,11 @@ export const asyncRoutes = [
     children: [
       {
         path: 'basic',
-        component: () => import('@/views/settings/basic'),
-        name: 'Basic',
+        component: () => import('@/views/settings/dictionary'),
+        name: 'Dictionary',
         meta: {
-          title: 'BasicSetting',
-          key: 'basic'
-        }
-      },
-      {
-        path: 'images',
-        component: () => import('@/views/settings/images'),
-        name: 'Images',
-        meta: {
-          title: '图片管理',
-          key: 'images'
+          title: '字典',
+          key: 'dictionary'
         }
       }
     ]
