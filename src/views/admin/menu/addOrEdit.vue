@@ -118,7 +118,7 @@ export default {
         permission: '',
         parentId: 0,
         parent_name: '',
-        menu_order: '',
+        menu_order: 0,
         menu_type: 0
       }
     }

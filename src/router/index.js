@@ -63,6 +63,37 @@ export const asyncRoutes = [
     ]
   },
   {
+    path: '/financial',
+    component: Layout,
+    redirect: '/financial/income',
+    name: 'Financial',
+    meta: {
+      title: '财务管理',
+      icon: 'money',
+      key: 'financial'
+    },
+    children: [
+      {
+        path: 'income',
+        component: () => import('@/views/financial/income'),
+        name: 'Income',
+        meta: {
+          title: '入账',
+          key: 'income'
+        }
+      },
+      {
+        path: 'outlay',
+        component: () => import('@/views/financial/outlay'),
+        name: 'Outlay',
+        meta: {
+          title: '入账',
+          key: 'outlay'
+        }
+      }
+    ]
+  },
+  {
     path: '/admin',
     component: Layout,
     redirect: '/admin/users',
