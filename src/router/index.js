@@ -145,12 +145,21 @@ export const asyncRoutes = [
     },
     children: [
       {
-        path: 'basic',
+        path: 'dictionary',
         component: () => import('@/views/settings/dictionary'),
         name: 'Dictionary',
         meta: {
           title: '字典',
           key: 'dictionary'
+        }
+      },
+      {
+        path: 'product',
+        component: () => import('@/views/settings/product'),
+        name: 'Product',
+        meta: {
+          title: '商品管理',
+          key: 'product'
         }
       }
     ]

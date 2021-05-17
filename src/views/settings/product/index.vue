@@ -13,7 +13,7 @@
 import { list, del } from '@/api/settings'
 import AddOrEdit from './addOrEdit'
 export default {
-  name: 'Dictionary',
+  name: 'Product',
   components: { AddOrEdit },
   data() {
     return {

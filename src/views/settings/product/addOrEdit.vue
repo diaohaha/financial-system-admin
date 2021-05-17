@@ -11,9 +11,6 @@
         <el-form-item label="标识" prop="dic_key">
           <el-input v-model.trim="form.dic_key" placeholder="长度4至8位，以字母开头，字母，数字，减号，下划线" />
         </el-form-item>
-        <el-form-item label="内容" prop="dic_val">
-          <keys ref="keys" :keys="form.dic_val" />
-        </el-form-item>
         <el-form-item label="备注" prop="remark">
           <el-input v-model.trim="form.remark" />
         </el-form-item>
@@ -26,9 +23,7 @@
 </template>
 <script>
 import { edit, add } from '@/api/settings'
-import Keys from './keys'
 export default {
-  components: { Keys },
   props: {
     dialogVisible: {
       type: Boolean,
