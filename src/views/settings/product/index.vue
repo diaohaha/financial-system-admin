@@ -5,12 +5,13 @@
     </div>
     <!-- 表格区域 -->
     <nice-table :table-header="tableHeader" :list="list" :toolbar-list="toolbarList" :list-loading="loading" @emitEvent="(args)=>this.$emitEvent(args)" />
-    <add-or-edit v-if="dialogVisible" :dialog-visible="dialogVisible" :info="info" @close="close" />
+    <add-or-edit v-if="dialogVisible" :dialog-visible="dialogVisible" :info="info" :types="types" @close="close" />
   </div>
 </template>
 
 <script>
-import { list, del } from '@/api/settings'
+import { list, del } from '@/api/products'
+import { types } from '@/api/settings'
 import AddOrEdit from './addOrEdit'
 export default {
   name: 'Product',
@@ -21,11 +22,13 @@ export default {
       dialogVisible: false,
       info: null,
       loading: false,
+      types: [],
       tableHeader: [
-        { field: 'dic_title', sortable: 'custom', title: '标题' },
-        { field: 'dic_type', sortable: 'custom', title: '类别' },
-        { field: 'dic_key', sortable: 'custom', title: 'KEY' },
-        { field: 'remark', title: '备注' },
+        { field: 'product_title', sortable: 'custom', title: '名称' },
+        { field: 'assets_type', sortable: 'custom', title: '资产类型' },
+        { field: 'product_type', sortable: 'custom', title: '商品类别' },
+        { field: 'detail', title: '详情' },
+        { field: 'update_time', title: '更新时间' },
         { field: 'toolbar', title: '操作' }
       ],
       toolbarList: [
@@ -36,6 +39,7 @@ export default {
     }
   },
   created() {
+    this.getTypes()
     this.search()
   },
   methods: {
@@ -51,6 +55,11 @@ export default {
       }).catch(() => {
         this.loading = false
       })
+    },
+    getTypes() {
+      types({ dic_type: 'assets' }).then(res => {
+        this.types = res
+      }).catch(() => {})
     },
     handleAdd() {
       this.info = null

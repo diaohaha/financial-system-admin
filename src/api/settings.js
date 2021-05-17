@@ -12,3 +12,7 @@ export function add(data) {
 export function del(data) {
   return Request.post('/dictionary/del', data)
 }
+
+export function types(data) {
+  return Request.post('/dictionary/types', data)
+}

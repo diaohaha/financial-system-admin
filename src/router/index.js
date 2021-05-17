@@ -154,12 +154,12 @@ export const asyncRoutes = [
         }
       },
       {
-        path: 'product',
+        path: 'products',
         component: () => import('@/views/settings/product'),
         name: 'Product',
         meta: {
           title: '商品管理',
-          key: 'product'
+          key: 'products'
         }
       }
     ]
